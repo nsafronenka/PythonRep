@@ -1,8 +1,8 @@
 import random                       # import random module to generate random values
 
-thislist = []                       # lists for random values
-oddValues = []                      # lists for odd values
-evenValues = []                     # lists for even values
+thislist = []                       # list for random values
+oddValues = []                      # list for odd values
+evenValues = []                     # list for even values
 
 
 for i in range(100):                # generating 100 values
