@@ -2,7 +2,7 @@
 import random as r
 
 
-def generate_dictionary(_some_params, _num, _max):
+def generate_dictionary(_some_params, _num, _max):              # Creation of the function to generate dictionary
     _element_params = r.sample(_some_params, _num)              # Number of elements within 1 dict.
     _dict_item = {}
     for _element in _element_params:
@@ -17,7 +17,7 @@ for i in range(0, 5):
 print(mylist)
 
 
-def result_dict():
+def result_dict():                                          # Creating of the function for result dictionary
     result_dict = {}
     for key in params:
     # This comment belongs to 3 rows below for better understanding.Check if my list has a dictionary with the key value
