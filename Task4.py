@@ -22,11 +22,7 @@ def join_paragraphs(_paragraphs):                   # Creating function to join 
     return _joined_paragraph                        # Return multiline string
 
 # Define source paragraphs
-str = """  tHis iz your homeWork, copy these Text to variable.
-  You NEED TO normalize it fROM letter CASEs point oF View. also, create one MORE senTENCE witH LAST WoRDS of each existING SENtence and add it to the END OF this Paragraph.
-  it iZ misspeLLing here. fix“iZ” with correct “is”, but ONLY when it Iz a mistAKE.
-  last iz TO calculate nuMber OF Whitespace characteRS in this Tex. caREFULL, not only Spaces, but ALL whitespaces.
-I got 87."""
+str = """"""
 paragraphs = str.split("\n")
 
 # Normalize paragraphs
