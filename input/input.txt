@@ -1,7 +1,7 @@
 NEWS FEED:
 
 Type:	News
-Body:	be carrefull, winter is back, traffic jams are possible in the city!
+Body:	be carrefull, WINTER is back, TRAFFIC jams are possible in the city!
 City:	Minsk
 Publish time:	14/02/2021 22.04
 
@@ -14,5 +14,5 @@ Expiration date:	20/03/2021
 Days to expire:	35
 
 Type:	Tip of the day
-Body:	brush your teeth with your left hand today!
+Body:	brush your teeth WITH your left hand today!
 
