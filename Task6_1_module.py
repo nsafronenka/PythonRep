@@ -1,37 +1,57 @@
 from datetime import datetime
+# Create a class Content
+class Content:
+    # Creation of a constructor of the class Content
+    def __init__(self):
+        # Dictionary of peace of content
+        self.record = {}
 
-class Content:                          # Create a class Content
-    def __init__(self):                 # Creation of a constructor of the class Content
-        self.record = {}                # Dictionary of peace of content
-
-    def publish(self, file):            # Creation of publish method
+    # Creation of publish method
+    def publish(self, file):
         for _key in self.record.keys():
-            file.write(_key + ":\t" + self.record[_key] + "\n")     # Put parameter to file
+            # Put parameter to file
+            file.write(_key + ":\t" + self.record[_key] + "\n")
         file.write("\n")
 
 
-class News(Content):                                # Creation of the new inherited class News from Content
-    def __init__(self, news, news_city):            # Creation of a constructor with attributes
-        self.pub_time = datetime.now()              # Get current time
-        self.record = {"Type": "News", "Body": news, "City": news_city, "Publish time": self.pub_time.strftime("%d/%m/%Y %H.%M")}   # Put values to dictionary
+# Creation of the new inherited class News from Content
+class News(Content):
+    # Creation of a constructor with attributes
+    def __init__(self, news, news_city):
+        # Get current time
+        self.pub_time = datetime.now()
+        # Put values to dictionary
+        self.record = {"Type": "News", "Body": news, "City": news_city, "Publish time": self.pub_time.strftime("%d/%m/%Y %H.%M")}
 
 
-class PrivateAd(Content):                           # Creation of the new inherited class PrivateAd from Content
-    def __init__(self, ads, expiration_date):       # Creation of a constructor with attributes
-        self.record = {"Type": "Private Ad", "Body": ads, "Expiration date": expiration_date}       # Put values to dictionary
+# Creation of the new inherited class PrivateAd from Content
+class PrivateAd(Content):
+    # Creation of a constructor with attributes
+    def __init__(self, ads, expiration_date):
+        # Put values to dictionary
+        self.record = {"Type": "Private Ad", "Body": ads, "Expiration date": expiration_date}
 
-    def time_to_expire(self):                       # Method to define expiration date for private ads
-        self.exp_date = datetime.strptime(self.record["Expiration date"], "%d/%m/%Y")   # Get expiration date, strptime function converts string to datetime format with the mask date/month/year
-        return str((self.exp_date - datetime.now()).days)                               # The method returns the number of days to expire of the private ad
+    # Method to define expiration date for private ads
+    def time_to_expire(self):
+        # Get expiration date, strptime function converts string to datetime format with the mask date/month/year
+        self.exp_date = datetime.strptime(self.record["Expiration date"], "%d/%m/%Y")
+        # The method returns the number of days to expire of the private ad
+        return str((self.exp_date - datetime.now()).days)
 
-    def publish(self, file):                                            # Publish method redefinition
+    # Publish method redefinition
+    def publish(self, file):
         for _key in self.record.keys():
-            file.write(_key + ":\t" + str(self.record[_key]) + "\n")    # Put parameter to file
-        file.write("Days to expire:\t" + self.time_to_expire() + "\n")  # Put days to expire to file
+            # Put parameter to file
+            file.write(_key + ":\t" + str(self.record[_key]) + "\n")
+        # Put days to expire to file
+        file.write("Days to expire:\t" + self.time_to_expire() + "\n")
         file.write("\n")
 
 
-class Tip(Content):                                                     # Creation of the new inherited class Tip from Content
-    def __init__(self, tip):                                            # Creation of a constructor with attribute
-        self.record = {"Type": "Tip of the day", "Body": tip}           # Put values to dictionary
+# Creation of the new inherited class Tip from Content
+class Tip(Content):
+    # Creation of a constructor with attribute
+    def __init__(self, tip):
+        # Put values to dictionary
+        self.record = {"Type": "Tip of the day", "Body": tip}
 

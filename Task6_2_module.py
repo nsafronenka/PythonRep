@@ -1,17 +1,27 @@
 class Paragraph:
+    # Creation of a constructor of the class Paragraph
     def __init__(self, paragraph):
         self.source = paragraph
-        paragraph = paragraph.lower()           # Lower case for the letters in paragraph
-        paragraph = paragraph.strip()           # Removing spaces at the beginning and at the end of the sentences
+        # Lower case for the letters in paragraph
+        paragraph = paragraph.lower()
+        # Removing spaces at the beginning and at the end of the sentences
+        paragraph = paragraph.strip()
 
-        sentences = paragraph.split(".")        # Splitting paragraph into a sentences using dot as a separator
+        # Splitting paragraph into a sentences using dot as a separator
+        sentences = paragraph.split(".")
         if '' in sentences:
-            sentences.remove('')                # Removing blank sentences if any
-        norm_paragraph = ""                     # Adding new variable for resulting paragraph
+            # Removing blank sentences if any
+            sentences.remove('')
+        # Adding new variable for resulting paragraph
+        norm_paragraph = ""
         for sentence in sentences:
-            sentence = sentence.lstrip(" ")     # Removing spaces to the left of the sentence
-            sentence = sentence.capitalize()    # Changing first character of the sentence to upper case
+            # Removing spaces to the left of the sentence
+            sentence = sentence.lstrip(" ")
+            # Changing first character of the sentence to upper case
+            sentence = sentence.capitalize()
             if sentence[-1:] not in {"!", "?"}:
-                sentence += "."                 # Adding dot to the end of the sentence
-            norm_paragraph += sentence + " "    # Adding sentences to the norm_paragraph
+                # Adding dot to the end of the sentence
+                sentence += "."
+            # Adding sentences to the norm_paragraph
+            norm_paragraph += sentence + " "
         self.normalized = norm_paragraph.rstrip(" ")

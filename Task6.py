@@ -51,4 +51,5 @@ file.write("NEWS FEED:\n\n")
 for cur_content in content:
     cur_content.publish(file)
 file.close()
+# Commented for testing needs
 # os.remove(input_filename)
