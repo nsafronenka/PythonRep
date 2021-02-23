@@ -3,15 +3,15 @@ NEWS FEED:
 Type:	News
 Body:	Be carrefull, winter is back, traffic jams are possible in the city!
 City:	Minsk
-Publish time:	18/02/2021 09.05
+Publish time:	23/02/2021 09.18
 
 Type:	Tip of the day
 Body:	Visit your parents today!
 
 Type:	Private Ad
 Body:	Buy an antique bell. Phone number:+37529 7000000.
-Expiration date:	20/03/2021
-Days to expire:	29
+Expiration date:	20/04/2021
+Days to expire:	55
 
 Type:	Tip of the day
 Body:	Brush your teeth with your left hand today!
