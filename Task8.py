@@ -2,6 +2,7 @@
 from Task6_1_module import Tip, News, PrivateAd
 from Task8_1 import Newspaper
 from datetime import datetime
+import os
 
 
 newspaper = Newspaper()
@@ -77,3 +78,7 @@ while output_format != 0:
         break
     else:
         print("You've selected a wrong option")
+# Commented for testing needs
+# os.remove(input_filename)
+        
+        
