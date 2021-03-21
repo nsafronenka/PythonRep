@@ -2,6 +2,7 @@
 from Task6_1_module import Tip, News, PrivateAd
 # Paragraph normalization
 from Task6_2_module import Paragraph
+import xml.etree.ElementTree as ET
 import json
 
 
@@ -81,3 +82,53 @@ class Newspaper:
         # Save JSONs to file
         _file.write(json.dumps(_records))
         _file.close()
+
+    def ReadXML(self, input_filename='.\\input\\input.xml'):
+        self.content = []
+        # Parse XML data
+        tree = ET.parse(input_filename)
+        root = tree.getroot()
+        # Read news
+        news = root.find('news')
+        if news != None:
+            for anews in news.findall('news'):
+                self.content.append(News(anews[0].text, anews[1].text))
+        # Read Private Ads
+        privateads = root.find('privateads')
+        if privateads != None:
+            for ad in privateads.findall('privatead'):
+                self.content.append(PrivateAd(ad[0].text, ad[1].text))
+        # Read Tips
+        tips = root.find('tips')
+        if tips != None:
+            for tip in tips.findall('tip'):
+                self.content.append(Tip(tip[0].text))
+
+    def PublishXML(self, output_filename='.\\output.xml'):
+        # Forming structure
+        newspaper = ET.Element('newspaper')
+        news = ET.SubElement(newspaper, 'news')
+        ads = ET.SubElement(newspaper, 'privateads')
+        tips = ET.SubElement(newspaper, 'tips')
+
+        # Iterating items
+        for item in self.content:
+            if item.record['Type'] == 'News':
+                # Creating news subelement
+                newselement = ET.SubElement(news, 'news')
+                ET.SubElement(newselement, 'body').text = item.record['Body']
+                ET.SubElement(newselement, 'city').text = item.record['City']
+                ET.SubElement(newselement, 'publish').text = item.record['Publish time']
+            elif item.record['Type'] == 'Private Ad':
+                # Creating private ad subelement
+                adelement = ET.SubElement(ads, 'privatead')
+                ET.SubElement(adelement, 'body').text = item.record['Body']
+                ET.SubElement(adelement, 'expire').text = item.record['Expiration date']
+            elif item.record['Type'] == 'Tip of the day':
+                # Creating tip subelement
+                tipelement = ET.SubElement(tips, 'tip')
+                ET.SubElement(tipelement, 'body').text = item.record['Body']
+
+        # Save content in XML format
+        tree = ET.ElementTree(newspaper)
+        tree.write(output_filename, encoding='unicode')
